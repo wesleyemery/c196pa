@@ -10,6 +10,9 @@ import androidx.appcompat.widget.Toolbar;
 
 public class TermListActivity extends AppCompatActivity {
 
+    public static final int TERM_EDITOR_ACTIVITY_CODE = 11111;
+    public static final int TERM_VIEWER_ACTIVITY_CODE = 22222;
+
     DataProvider database;
 
     @Override

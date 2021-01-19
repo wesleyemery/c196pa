@@ -1,11 +1,11 @@
 package com.wgu_wemery.c196pa;
 
 public class Term {
-    private long termId;
-    private String termTitle;
-    private String termStartDate;
-    private String termEndDate;
-    private int current;
+    public long termId;
+    public String termTitle;
+    public String termStartDate;
+    public String termEndDate;
+    public int current;
 
     public Term() {
         this.termTitle = "";

@@ -15,7 +15,6 @@ import androidx.annotation.Nullable;
 public class DataProvider extends ContentProvider {
 
     private static final String AUTHORITY = "com.wgu_wemery.c196pa";
-
     private static final String TABLE_TERMS = "terms";
     private static final String TABLE_COURSES = "courses";
     private static final String TABLE_COURSE_NOTES = "courseNotes";
@@ -23,16 +22,13 @@ public class DataProvider extends ContentProvider {
     private static final String TABLE_ASSESSMENT_NOTES = "assessmentNotes";
     private static final String ALERT_BASE_PATH = "alert";
 
-
     //uri
     public static final Uri TERM_TERMS_URI = Uri.parse("content://" + AUTHORITY + "/" + TABLE_TERMS );
     public static final Uri TABLE_COURSES_URI = Uri.parse("content://" + AUTHORITY + "/" + TABLE_COURSES );
-    public static final Uri COURSES__NOTES_URI = Uri.parse("content://" + AUTHORITY + "/" + TABLE_COURSE_NOTES );
+    public static final Uri COURSES_NOTES_URI = Uri.parse("content://" + AUTHORITY + "/" + TABLE_COURSE_NOTES );
     public static final Uri TABLE_ASSESSMENTS_URI = Uri.parse("content://" + AUTHORITY + "/" + TABLE_ASSESSMENTS );
     public static final Uri TABLE_ASSESSMENT_NOTES_URI = Uri.parse("content://" + AUTHORITY + "/" + TABLE_ASSESSMENT_NOTES );
     public static final Uri ALERT_CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + ALERT_BASE_PATH );
-
-    private static UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     //options
     private static final int TERM = 1;
@@ -48,6 +44,7 @@ public class DataProvider extends ContentProvider {
     private static final int ALERT = 11;
     private static final int ALERT_ID = 12;
 
+    private static UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     static {
         uriMatcher.addURI(AUTHORITY, TABLE_TERMS, TERM);
         uriMatcher.addURI(AUTHORITY, TABLE_TERMS + "/#", TERM_ID);
@@ -64,26 +61,28 @@ public class DataProvider extends ContentProvider {
 
     }
 
+    private static final String TERMS_CONTENT_TYPE = "terms";
+    private static final String COURSES_CONTENT_TYPE = "courses";
+    private static final String COURSE_NOTES_CONTENT_TYPE = "courseNotes";
+    private static final String ASSESSMENTS_CONTENT_TYPE = "assessments";
+    private static final String ASSESSMENT_NOTES_CONTENT_TYPE = "assessmentNotes";
+    private static final String ALERT_CONTENT_TYPE = "alert";
 
     private SQLiteDatabase db;
 
     @Override
     public boolean onCreate() {
-
         DBOpenHelper helper = new DBOpenHelper(getContext());
         db = helper.getWritableDatabase();
-
         return true;
     }
 
-
-    @Nullable
     @Override
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strings, @Nullable String s, @Nullable String[] strings1, @Nullable String s1) {
+    public Cursor query( Uri uri,  String[] strings,  String s,  String[] strings1, String s1) {
         switch ( uriMatcher.match(uri)) {
             case TERM:
                 return db.query(DBOpenHelper.TABLE_TERM, DBOpenHelper.TERM_ALL_COLUMNS, s,
-                        null, null, null, null);
+                        null, null, null, DBOpenHelper.TERM_ID + " ASC");
             case COURSE:
                 return db.query(DBOpenHelper.TABLE_COURSE, DBOpenHelper.COURSE_ALL_COLUMNS, s,
                         null, null, null, null);
@@ -100,10 +99,9 @@ public class DataProvider extends ContentProvider {
                 return db.query(DBOpenHelper.TABLE_ALERT, DBOpenHelper.ALERT_ALL_COLUMNS, s,
                         null, null, null, null);
             default:
-                break;
+                throw new IllegalArgumentException("URI Unsupported: " + uri);
         }
-        return null;
-    }
+   }
 
     @Nullable
     @Override
@@ -136,9 +134,8 @@ public class DataProvider extends ContentProvider {
                 id = db.insert(DBOpenHelper.TABLE_ALERT, null, contentValues);
                 return Uri.parse(ALERT_BASE_PATH + "/" + id);
             default:
-                break;
+                throw new IllegalArgumentException("URI Unsupported: " + uri);
         }
-        return null;
     }
 
     @Override
@@ -158,9 +155,8 @@ public class DataProvider extends ContentProvider {
             case ALERT:
                 return db.delete(DBOpenHelper.TABLE_ALERT, s, strings);
             default:
-                break;
+                throw new IllegalArgumentException("URI Unsupported: " + uri);
         }
-        return 0;
     }
 
     @Override
@@ -179,8 +175,7 @@ public class DataProvider extends ContentProvider {
             case ALERT:
                 return db.update(DBOpenHelper.TABLE_ALERT, contentValues,s, strings);
             default:
-                break;
+                throw new IllegalArgumentException("URI Unsupported: " + uri);
         }
-        return 0;
     }
 }

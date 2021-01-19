@@ -2,24 +2,23 @@ package com.wgu_wemery.c196pa;
 
 public class Course {
 
-    private long courseId;
-    private long courseTermID;
-    private String courseTitle;
-    private String startDate;
-    private String endDate;
-    private String status;
-    private String mentorName;
-    private String mentorID;
+    public long courseId;
+    public long courseTermID;
+    public String courseTitle;
+    public String courseStartDate;
+    public String courseEndDate;
+    public String status;
+    public String mentorID;
 
-
-    public Course(long courseId, long courseTermID, String courseTitle, String startDate, String endDate, String status, String mentorName, String mentorID) {
+    public Course() {
+    }
+    public Course(long courseId, long courseTermID, String courseTitle, String courseStartDate, String courseEndDate, String status,  String mentorID) {
         this.courseId = courseId;
         this.courseTermID = courseTermID;
         this.courseTitle = courseTitle;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.courseStartDate = courseStartDate;
+        this.courseEndDate = courseEndDate;
         this.status = status;
-        this.mentorName = mentorName;
         this.mentorID = mentorID;
     }
 
@@ -47,20 +46,20 @@ public class Course {
         this.courseTitle = courseTitle;
     }
 
-    public String getStartDate() {
-        return startDate;
+    public String getcourseStartDate() {
+        return courseStartDate;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    public void setcourseStartDate(String courseStartDate) {
+        this.courseStartDate = courseStartDate;
     }
 
-    public String getEndDate() {
-        return endDate;
+    public String getcourseEndDate() {
+        return courseEndDate;
     }
 
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
+    public void setcourseEndDate(String courseEndDate) {
+        this.courseEndDate = courseEndDate;
     }
 
     public String getStatus() {
@@ -69,14 +68,6 @@ public class Course {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getMentorName() {
-        return mentorName;
-    }
-
-    public void setMentorName(String mentorName) {
-        this.mentorName = mentorName;
     }
 
     public String getMentorID() {

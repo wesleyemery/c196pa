@@ -1,25 +1,28 @@
 package com.wgu_wemery.c196pa;
 
 public class Assessment {
-    private int assessmentID;
-    private Long courseID;
-    private String assessmentType;
-    private String assessmentName;
-    private String assessmentDate;
+    public String assessmentID;
+    public Long courseID;
+    public String assessmentType;
+    public String assessmentName;
+    public String assessmentDate;
 
-    public Assessment(int assessmentID, Long courseID, String assessmentType, String assessmentName, String assessmentDate) {
+    public Assessment(String assessmentID, Long courseID, String assessmentType, String assessmentName, String assessmentDate) {
         this.assessmentID = assessmentID;
         this.courseID = courseID;
         this.assessmentType = assessmentType;
         this.assessmentName = assessmentName;
         this.assessmentDate = assessmentDate;
     }
+    public Assessment(Long courseID) {
+        this.courseID = courseID;
+    }
 
-    public int getAssessmentID() {
+    public String getAssessmentID() {
         return assessmentID;
     }
 
-    public void setAssessmentID(int assessmentID) {
+    public void setAssessmentID(String assessmentID) {
         this.assessmentID = assessmentID;
     }
 
