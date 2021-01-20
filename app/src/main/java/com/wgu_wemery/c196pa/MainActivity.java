@@ -19,6 +19,30 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    public void onClick(View v) {
+
+        int id = v.getId();
+
+        switch(id){
+            case R.id.termsBtn: {
+                //Toast.makeText(this, "Terms pressed", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, TermListActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.courseBtn: {
+                Intent intent = new Intent(this, CourseListActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.assessBtn: {
+                //Toast.makeText(this, "Terms pressed", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, AssessmentListActivity.class);
+                startActivity(intent);
+                break;
+            }
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +61,8 @@ public class MainActivity extends AppCompatActivity {
                 view.getContext().startActivity(intent);
             }
         });
+
     }
-
-
 
 
 }

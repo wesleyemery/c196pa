@@ -11,7 +11,7 @@
         android:id="@+id/header"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:text="WGU Term Tracker"
+        android:text="@string/wgu_term_tracker"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
@@ -20,25 +20,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.707"
-        app:srcCompat="@drawable/ic_baseline_school_24" />
+        app:srcCompat="@drawable/ic_baseline_school_24"
+        android:contentDescription="TODO" />
 
     <Button
         android:id="@id/termsBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="155dp"
-        android:text="TERMS"
+        android:text="@string/terms"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/courseBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="COURSES"
+        android:text="@string/courses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,10 +49,17 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="ASSESSMENTS"
+        android:text="@string/assessments"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/courseBtn" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
