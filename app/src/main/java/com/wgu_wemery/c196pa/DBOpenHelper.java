@@ -1,6 +1,7 @@
 package com.wgu_wemery.c196pa;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -145,4 +146,5 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TERM);
         onCreate(db);
     }
+
 }
