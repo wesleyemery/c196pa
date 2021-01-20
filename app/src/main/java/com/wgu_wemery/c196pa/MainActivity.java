@@ -12,10 +12,10 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private final String TAG = "Lifecycle";
     public final static String DETAILTYPE_EXTRA="com.wgu_wemery.c196pa.detailType";
     Button termsBtn, coursesBtn, assessBtn;
-    DataProvider database;
+    DataProvider dataProvider = new DataProvider();
+    DBOpenHelper database;
 
 
 
@@ -24,18 +24,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("WGU Term Tracker");
-        Log.d(TAG, "onCreate");
         termsBtn = (Button) findViewById(R.id.termsBtn);
         coursesBtn = (Button) findViewById(R.id.courseBtn);
         assessBtn = (Button) findViewById(R.id.assessBtn);
 
         termsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Context context = getApplicationContext();
-                database = new DataProvider();
-                Intent intent = new Intent(v.getContext(), TermListActivity.class);
-                v.getContext().startActivity(intent);
+                database = new DBOpenHelper(context);
+                Intent intent = new Intent(view.getContext(), TermListActivity.class);
+                view.getContext().startActivity(intent);
             }
         });
     }

@@ -29,7 +29,7 @@ class DataManager {
         int termActive = cursor.getInt(cursor.getColumnIndex(DBOpenHelper.TERM_ACTIVE));
 
         Term t = new Term();
-        t.termId = id;
+        t.termId = t.getTermId();
         t.termTitle = termTitle;
         t.termStartDate = termStartDate;
         t.termEndDate = termEndDate;
