@@ -7,19 +7,24 @@ public class Course {
     public String courseTitle;
     public String courseStartDate;
     public String courseEndDate;
+    public String courseMentor;
+    public String courseMentorEmail;
+    public String courseMentorPhone;
     public String status;
-    public String mentorID;
 
     public Course() {
     }
-    public Course(long courseId, long courseTermID, String courseTitle, String courseStartDate, String courseEndDate, String status,  String mentorID) {
+
+    public Course(long courseId, long courseTermID, String courseTitle, String courseStartDate, String courseEndDate, String status, String courseMentor, String courseMentorEmail, String courseMentorPhone) {
         this.courseId = courseId;
         this.courseTermID = courseTermID;
         this.courseTitle = courseTitle;
         this.courseStartDate = courseStartDate;
         this.courseEndDate = courseEndDate;
+        this.courseMentor = courseMentor;
+        this.courseMentorEmail = courseMentorEmail;
+        this.courseMentorPhone = courseMentorPhone;
         this.status = status;
-        this.mentorID = mentorID;
     }
 
     public long getCourseId() {
@@ -46,19 +51,17 @@ public class Course {
         this.courseTitle = courseTitle;
     }
 
-    public String getcourseStartDate() {
+    public String getCourseStartDate() {
         return courseStartDate;
     }
 
-    public void setcourseStartDate(String courseStartDate) {
-        this.courseStartDate = courseStartDate;
-    }
+    public void setCourseStartDate(String courseStartDate) { this.courseStartDate = courseStartDate; }
 
-    public String getcourseEndDate() {
+    public String getCourseEndDate() {
         return courseEndDate;
     }
 
-    public void setcourseEndDate(String courseEndDate) {
+    public void setCourseEndDate(String courseEndDate) {
         this.courseEndDate = courseEndDate;
     }
 
@@ -70,11 +73,20 @@ public class Course {
         this.status = status;
     }
 
-    public String getMentorID() {
-        return mentorID;
+    public String getCourseMentor() {
+        return courseMentor;
     }
 
-    public void setMentorID(String mentorID) {
-        this.mentorID = mentorID;
+    public void setCourseMentor(String courseMentor) {
+        this.courseMentor = courseMentor;
     }
+
+    public String getCourseMentorEmail() { return courseMentorEmail; }
+
+    public void setCourseMentorEmail(String courseMentorEmail) { this.courseMentorEmail = courseMentorEmail; }
+
+    public String getCourseMentorPhone() { return courseMentorPhone; }
+
+    public void setCourseMentorPhone(String courseMentorPhone) { this.courseMentorPhone = courseMentorPhone; }
+
 }
