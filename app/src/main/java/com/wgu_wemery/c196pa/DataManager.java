@@ -15,12 +15,12 @@ class DataManager {
         values.put(DBOpenHelper.TERM_STARTDATE, termStart);
         values.put(DBOpenHelper.TERM_ENDDATE, termEnd);
         values.put(DBOpenHelper.TERM_ACTIVE, termActive);
-        Uri termUri = context.getContentResolver().insert(DataProvider.TERM_TERMS_URI, values);
+        Uri termUri = context.getContentResolver().insert(DataProvider.TERM_URI, values);
         return termUri;
     }
 
     public static Term getTerm(Context context, long id) {
-        Cursor cursor = context.getContentResolver().query(DataProvider.TERM_TERMS_URI, DBOpenHelper.TERM_ALL_COLUMNS, DBOpenHelper.TERM_ID + "=" + id, null, null);
+        Cursor cursor = context.getContentResolver().query(DataProvider.TERM_URI, DBOpenHelper.TERM_ALL_COLUMNS, DBOpenHelper.TERM_TABLE_ID + "=" + id, null, null);
 
         cursor.moveToFirst();
         String termTitle = cursor.getString(cursor.getColumnIndex(DBOpenHelper.TERM_TITLE));

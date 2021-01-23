@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -48,33 +49,72 @@ public class TermListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(TermListActivity.this, TermListActivity.class);
-                Uri uri = Uri.parse(DataProvider.TERM_TERMS_URI + "/" + id);
+                Uri uri = Uri.parse(DataProvider.TERM_URI + "/" + id);
                 startActivityForResult(intent, TERM_VIEWER_ACTIVITY_CODE);
             }
         });
+    }
 
+    private boolean sampleData() {
+        Uri term1Uri = DataManager.insertTerm(this, "Spring 2020", "2020-01-01", "2020-06-30", 1);
+        Uri term2Uri = DataManager.insertTerm(this, "Fall 2016", "2016-07-01", "2016-12-31", 0);
+        Uri term3Uri = DataManager.insertTerm(this, "Spring 2017", "2017-01-01", "2017-06-30", 0);
+        Uri term4Uri = DataManager.insertTerm(this, "Fall 2017", "2017-07-01", "2017-12-31", 0);
+        Uri term5Uri = DataManager.insertTerm(this, "Spring 2018", "2018-01-01", "2018-06-30", 0);
+        Uri term6Uri = DataManager.insertTerm(this, "Fall 2018", "2018-07-01", "2018-12-31", 0);
+
+        Uri course1Uri = DataManager.insertCourse(this, Long.parseLong(term1Uri.getLastPathSegment()),
+                "C196: Mobile Application Development", "2016-01-01", "2016-02-01",
+                "Pubali Banerjee", "IN_PROGRESS");
+
+        DataManager.insertCourse(this, Long.parseLong(term1Uri.getLastPathSegment()),
+                "C179: Business of IT - Applications", "2016-02-01", "2016-03-01",
+                "Course Mentor Group", "PLAN_TO_TAKE");
+
+        DataManager.insertCourse(this, Long.parseLong(term2Uri.getLastPathSegment()),
+                "C195: Software II - Advanced Java Concepts", "2016-03-01", "2016-06-30",
+                "Course Mentor Group", "", "cmprogramming@wgu.edu",
+                "PLAN_TO_TAKE");
+
+        DataManager.insertCourseNote(this, Long.parseLong(course1Uri.getLastPathSegment()),
+                "This is a short test note");
+
+        DataManager.insertCourseNote(this, Long.parseLong(course1Uri.getLastPathSegment()),
+                getString(R.string.long_test_note));
+
+        Uri ass1Uri = DataManager.insertAssessment(this, Long.parseLong(course1Uri.getLastPathSegment()), "CLP1",
+                "Mobile Application Development", "As a competent mobile application developer, your understanding of mobile application structure and design will help you to develop applications to meet customer requirements. The following project to develop a student scheduler/student progress tracking application, will help you to apply these skills in a familiar, real-world scenario. This task will allow you to demonstrate your ability to apply the skills learned in the course.\n" +
+                        "\n" +
+                        "You will develop a multiple-screen mobile application for WGU students to track their terms, courses associated with each term, and assessment(s) associated with each course. The application will allow students to enter, edit, and delete term, course, and assessment data. It should provide summary and detailed views of courses for each term and provide alerts for upcoming performance and objective assessments. This application will use a SQLite database.\n" +
+                        "\n\n" +
+                        "adding another line", "2016-10-01 02:30:00 PM");
+
+        Uri ass2Uri = DataManager.insertAssessment(this, Long.parseLong(course1Uri.getLastPathSegment()), "ABC3",
+                "Second Assessment, although this one has a name that won't fit on the grid",
+                "Assessment Description", "2016-10-01 10:30:00 AM");
+
+
+    }
+
+        @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    public void termAdd(View view){
+        Intent intent = new Intent(this, TermDetailActivity.class);
+        intent.putExtra("com.ntlts.c196.ADD", true);
+        startActivityForResult(intent,5);
     }
 
 
 
-
-    /* @Override
-        protected void onCreate(@ Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_term_list);
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Terms");
-
-            String[] from = { DBOpenHelper.TERM_TITLE, DBOpenHelper.TERM_STARTDATE, DBOpenHelper.TERM_ENDDATE };
-           // int[] to = { R.id., R.id.tvTermStartDate, R.id.tvTermEndDate };
-
-            //ca = new SimpleCursorAdapter(this, R.layout.term_list_item, null, from, to, 0);
-            db = new DataProvider();
-
-        }
-    */
     public void onBack(View view) {
         Intent intent = new Intent(TermListActivity.this,  MainActivity.class);
         startActivity(intent);

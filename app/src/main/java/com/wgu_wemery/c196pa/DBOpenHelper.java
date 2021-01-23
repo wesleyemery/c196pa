@@ -12,48 +12,48 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     // Table: Terms
     public static final String TABLE_TERM = "term";
-    public static final String TERM_ID = "_id";
+    public static final String TERM_TABLE_ID = "_id";
     public static final String TERM_TITLE = "termTitle";
     public static final String TERM_STARTDATE = "termStartDate";
     public static final String TERM_ENDDATE = "termEndDate";
     public static final String TERM_ACTIVE = "active";
     public static final String TERM_CREATED = "_created";
-    public static final String[] TERM_ALL_COLUMNS = {TERM_ID, TERM_TITLE, TERM_STARTDATE, TERM_ENDDATE, TERM_ACTIVE, TERM_CREATED};
+    public static final String[] TERM_ALL_COLUMNS = {TERM_TABLE_ID, TERM_TITLE, TERM_STARTDATE, TERM_ENDDATE, TERM_ACTIVE, TERM_CREATED};
 
     // Table: Course
     public static final String TABLE_COURSE = "course";
-    public static final String COURSE_ID = "_id";
+    public static final String COURSE_TABLE_ID = "_id";
     public static final String COURSE_TERM_ID = "term_id";
-    public static final String COURSE_MENTOR_ID = "mentor_id";
+    public static final String COURSE_MENTOR = "mentor";
+    public static final String COURSE_MENTOR_PHONE = "mentorPhone";
+    public static final String COURSE_MENTOR_EMAIL = "mentorEmail";
     public static final String COURSE_TITLE = "courseTitle";
+    public static final String COURSE_DESCRIPTION = "description";
     public static final String COURSE_STARTDATE = "courseStartDate";
     public static final String COURSE_ENDDATE = "courseEndDate";
     public static final String COURSE_STATUS = "courseStatus";
-    public static final String[] COURSE_ALL_COLUMNS = {COURSE_ID, COURSE_TERM_ID, COURSE_MENTOR_ID, COURSE_TITLE, COURSE_STARTDATE, COURSE_ENDDATE, COURSE_STATUS};
+    public static final String[] COURSE_ALL_COLUMNS = {COURSE_TABLE_ID, COURSE_TERM_ID, COURSE_MENTOR, COURSE_MENTOR_PHONE, COURSE_MENTOR_EMAIL, COURSE_TITLE, COURSE_DESCRIPTION, COURSE_STARTDATE, COURSE_ENDDATE, COURSE_STATUS};
 
-    // Table: Mentor
-    public static final String TABLE_MENTOR = "mentor";
-    public static final String MENTOR_ID = "_id";
-    public static final String MENTOR_NAME = "mentorName";
-    public static final String MENTOR_PHONE = "mentorPhone";
-    public static final String MENTOR_EMAIL = "mentorEmail";
-    public static final String[] MENTOR_ALL_COLUMNS = {MENTOR_ID, MENTOR_NAME, MENTOR_PHONE, MENTOR_EMAIL};
 
     // Table: CourseNote
     public static final String TABLE_COURSENOTE = "courseNote";
-    public static final String COURSENOTE_ID = "_id";
+    public static final String COURSENOTE_TABLE_ID = "_id";
     public static final String COURSENOTE_COURSE_ID = "course_id";
-    public static final String COURSENOTE_NOTE = "courseNoteNote";
-    public static final String[] COURSENOTE_ALL_COLUMNS = {COURSENOTE_ID, COURSENOTE_NOTE, COURSENOTE_COURSE_ID};
+    public static final String COURSENOTE_TEXT = "courseNoteText";
+    public static final String COURSE_NOTE_ATTACHMENT_URI = "uri";
+    public static final String COURSE_NOTE_CREATED = "_created";
+    public static final String[] COURSENOTE_ALL_COLUMNS = {COURSENOTE_TABLE_ID, COURSENOTE_TABLE_ID, COURSENOTE_COURSE_ID, COURSENOTE_TEXT, COURSE_NOTE_ATTACHMENT_URI, COURSE_NOTE_CREATED };
 
     // Table: Assessment
     public static final String TABLE_ASSESSMENT = "assessment";
-    public static final String ASSESSMENT_ID = "_id";
+    public static final String ASSESSMENT_TABLE_ID = "_id";
     public static final String ASSESSMENT_COURSE_ID = "course_id";
     public static final String ASSESSMENT_TYPE = "assessmentType";
     public static final String ASSESSMENT_NAME = "assessmentName";
     public static final String ASSESSMENT_DATE = "assessmentDate";
-    public static final String[] ASSESSMENT_ALL_COLUMNS = {ASSESSMENT_ID, ASSESSMENT_COURSE_ID, ASSESSMENT_TYPE, ASSESSMENT_NAME, ASSESSMENT_DATE};
+    public static final String ASSESSMENT_DESCRIPTION = "description";
+    public static final String ASSESSMENT_CREATED = "_created";
+    public static final String[] ASSESSMENT_ALL_COLUMNS = {ASSESSMENT_TABLE_ID, ASSESSMENT_COURSE_ID, ASSESSMENT_TYPE, ASSESSMENT_NAME, ASSESSMENT_DATE, ASSESSMENT_DESCRIPTION, ASSESSMENT_CREATED};
 
     // Table: Alert
     public static final String TABLE_ALERT = "alert";
@@ -66,7 +66,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     //SQL to create term table
     private static final String TERM_TABLE_CREATE =
             "CREATE TABLE " + TABLE_TERM + " (" +
-                    TERM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    TERM_TABLE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     TERM_TITLE + " TEXT, " +
                     TERM_STARTDATE + " TEXT default CURRENT_TIMESTAMP," +
                     TERM_ENDDATE + " TEXT default CURRENT_TIMESTAMP," +
@@ -77,40 +77,42 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     //SQL to create course table
     private static final String COURSE_TABLE_CREATE =
             "CREATE TABLE " + TABLE_COURSE + " (" +
-                    COURSE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COURSE_TABLE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COURSE_TERM_ID + " INTEGER, " +
-                    COURSE_MENTOR_ID + " INTEGER, " +
+                    COURSE_DESCRIPTION + " TEXT, " +
+                    COURSE_MENTOR + " TEXT, " +
+                    COURSE_MENTOR_EMAIL + " TEXT, " +
+                    COURSE_MENTOR_PHONE + " TEXT, " +
+                    COURSE_STATUS + " TEXT, " +
                     COURSE_TITLE + " TEXT, " +
                     COURSE_STARTDATE + " TEXT default CURRENT_TIMESTAMP," +
                     COURSE_ENDDATE + " TEXT default CURRENT_TIMESTAMP," +
                     COURSE_STATUS + " TEXT " +
                     ")";
 
-    //SQL to create CourseMentor table
-    private static final String MENTOR_TABLE_CREATE =
-            "CREATE TABLE " + TABLE_MENTOR + " (" +
-                    MENTOR_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    MENTOR_NAME + " TEXT, " +
-                    MENTOR_PHONE + " TEXT, " +
-                    MENTOR_EMAIL + " TEXT " +
-                    ")";
 
     //SQL to create CourseNote table
     private static final String COURSENOTE_TABLE_CREATE =
             "CREATE TABLE " + TABLE_COURSENOTE + " (" +
-                    COURSENOTE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    COURSENOTE_NOTE + " TEXT, " +
-                    COURSENOTE_COURSE_ID + " INTEGER " +
+                    COURSENOTE_TABLE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COURSENOTE_COURSE_ID + " INTEGER, " +
+                    COURSENOTE_TEXT + " TEXT, " +
+                    COURSE_NOTE_ATTACHMENT_URI + " TEXT, " +
+                    COURSE_NOTE_CREATED + " TEXT default CURRENT_TIMESTAMP, " +
+                    "FOREIGN KEY(" + COURSENOTE_COURSE_ID + ") REFERENCES " + TABLE_COURSE + "(" + COURSE_TABLE_ID + ")" +
                     ")";
 
     //SQL to create Assessment table
     private static final String ASSESSMENT_TABLE_CREATE =
             "CREATE TABLE " + TABLE_ASSESSMENT + " (" +
-                    ASSESSMENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    ASSESSMENT_TABLE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     ASSESSMENT_COURSE_ID + " INTEGER, " +
                     ASSESSMENT_TYPE + " TEXT, " +
                     ASSESSMENT_NAME + " TEXT, " +
                     ASSESSMENT_DATE + " TEXT " +
+                    ASSESSMENT_DESCRIPTION + " TEXT " +
+                    ASSESSMENT_CREATED + " TEXT " +
+                    "FOREIGN KEY(" + ASSESSMENT_COURSE_ID + ") REFERENCES " + TABLE_COURSE + "(" + COURSE_TABLE_ID + ")" +
                     ")";
 
     //SQL to create Alert table
@@ -129,7 +131,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TERM_TABLE_CREATE);
-        db.execSQL(MENTOR_TABLE_CREATE);
         db.execSQL(COURSE_TABLE_CREATE);
         db.execSQL(COURSENOTE_TABLE_CREATE);
         db.execSQL(ALERT_TABLE_CREATE);
@@ -142,7 +143,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ALERT);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ASSESSMENT);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_COURSENOTE);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MENTOR);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TERM);
         onCreate(db);
     }
