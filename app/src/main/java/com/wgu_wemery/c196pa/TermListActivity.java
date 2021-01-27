@@ -17,6 +17,7 @@ import android.widget.SimpleCursorAdapter;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.net.URI;
 import java.util.ArrayList;
 
 public class TermListActivity extends AppCompatActivity {
@@ -63,37 +64,37 @@ public class TermListActivity extends AppCompatActivity {
         Uri term5Uri = DataManager.insertTerm(this, "Spring 2018", "2018-01-01", "2018-06-30", 0);
         Uri term6Uri = DataManager.insertTerm(this, "Fall 2018", "2018-07-01", "2018-12-31", 0);
 
-        Uri course1Uri = DataManager.insertCourse(this, Long.parseLong(term1Uri.getLastPathSegment()),
-                "C196: Mobile Application Development", "2016-01-01", "2016-02-01",
-                "Pubali Banerjee", "IN_PROGRESS");
+        Uri courseWGUUri = DataManager.insertCourse(this, Long.parseLong(term1Uri.getLastPathSegment()), "C196 - Mobile Development", "2020-01-01", "2020-02-01", "Jim Bob",
+                "jim.bob@wgu.edu", "121-151-9999", "IN_PROGRESS");
 
         DataManager.insertCourse(this, Long.parseLong(term1Uri.getLastPathSegment()),
                 "C179: Business of IT - Applications", "2016-02-01", "2016-03-01",
-                "Course Mentor Group", "PLAN_TO_TAKE");
+                "Course Mentor Group", "jim.bob@wgu.edu", "615-969-8888", "PAN_TO_TAKE");
 
         DataManager.insertCourse(this, Long.parseLong(term2Uri.getLastPathSegment()),
                 "C195: Software II - Advanced Java Concepts", "2016-03-01", "2016-06-30",
                 "Course Mentor Group", "", "cmprogramming@wgu.edu",
                 "PLAN_TO_TAKE");
 
-        DataManager.insertCourseNote(this, Long.parseLong(course1Uri.getLastPathSegment()),
+        DataManager.insertCourseNote(this, Long.parseLong(courseWGUUri.getLastPathSegment()),
                 "This is a short test note");
 
-        DataManager.insertCourseNote(this, Long.parseLong(course1Uri.getLastPathSegment()),
-                getString(R.string.long_test_note));
+        /*DataManager.insertCourseNote(this, Long.parseLong(courseWGUUri.getLastPathSegment()),
+                getString(R.string.));*/
 
-        Uri ass1Uri = DataManager.insertAssessment(this, Long.parseLong(course1Uri.getLastPathSegment()), "CLP1",
+        Uri ass1Uri = DataManager.insertAssessment(this, Long.parseLong(courseWGUUri.getLastPathSegment()), "CLP1",
                 "Mobile Application Development", "As a competent mobile application developer, your understanding of mobile application structure and design will help you to develop applications to meet customer requirements. The following project to develop a student scheduler/student progress tracking application, will help you to apply these skills in a familiar, real-world scenario. This task will allow you to demonstrate your ability to apply the skills learned in the course.\n" +
                         "\n" +
                         "You will develop a multiple-screen mobile application for WGU students to track their terms, courses associated with each term, and assessment(s) associated with each course. The application will allow students to enter, edit, and delete term, course, and assessment data. It should provide summary and detailed views of courses for each term and provide alerts for upcoming performance and objective assessments. This application will use a SQLite database.\n" +
                         "\n\n" +
                         "adding another line", "2016-10-01 02:30:00 PM");
 
-        Uri ass2Uri = DataManager.insertAssessment(this, Long.parseLong(course1Uri.getLastPathSegment()), "ABC3",
+        Uri ass2Uri = DataManager.insertAssessment(this, Long.parseLong(courseWGUUri.getLastPathSegment()), "ABC3",
                 "Second Assessment, although this one has a name that won't fit on the grid",
                 "Assessment Description", "2016-10-01 10:30:00 AM");
 
 
+        return false;
     }
 
         @Override
