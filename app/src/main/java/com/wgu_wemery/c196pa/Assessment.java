@@ -6,6 +6,7 @@ public class Assessment {
     public String assessmentType;
     public String assessmentName;
     public String assessmentDate;
+    public String description;
 
     public Assessment(String assessmentID, Long courseID, String assessmentType, String assessmentName, String assessmentDate) {
         this.assessmentID = assessmentID;
@@ -56,5 +57,13 @@ public class Assessment {
 
     public void setAssessmentDate(String assessmentDate) {
         this.assessmentDate = assessmentDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
