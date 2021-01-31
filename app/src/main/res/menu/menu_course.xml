@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="ADD ASSESSMENT"
+        android:id="@+id/action_add_assessment"
+        app:showAsAction="never"/>
+
+    <item
+        android:title="ADD ALERT"
+        android:id="@+id/action_course_alerts"
+        app:showAsAction="never"/>
+
+    <item
+        android:title="COURSE NOTES"
+        android:id="@+id/action_course_notes"
+        app:showAsAction="never"/>
+
+</menu>

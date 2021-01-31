@@ -1,12 +1,17 @@
-package com.wgu_wemery.c196pa;
+package com.wgu_wemery.c196pa.models;
 
-public class Assessment {
+import java.io.Serializable;
+
+public class Assessment implements Serializable {
     public String assessmentID;
     public Long courseID;
     public String assessmentType;
     public String assessmentName;
     public String assessmentDate;
     public String description;
+
+    public Assessment() {
+    }
 
     public Assessment(String assessmentID, Long courseID, String assessmentType, String assessmentName, String assessmentDate) {
         this.assessmentID = assessmentID;

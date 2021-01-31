@@ -17,7 +17,7 @@
             android:layout_marginTop="10dip"
             android:layout_marginEnd="20dip"
             android:layout_marginStart="20dip"
-            android:hint="Assignment Title"
+            android:hint="Term Title"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -33,7 +33,7 @@
             android:layout_marginTop="10dip"
             android:layout_marginEnd="20dip"
             android:layout_marginStart="20dip"
-            android:hint="Due Date"
+            android:hint="Term Start Date"
             android:id="@+id/edt_new_term_start_date_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
@@ -50,7 +50,7 @@
             android:layout_marginTop="10dip"
             android:layout_marginEnd="20dip"
             android:layout_marginStart="20dip"
-            android:hint="Description"
+            android:hint="Term End Date"
             android:id="@+id/edt_new_term_end_date_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
@@ -60,28 +60,6 @@
                 android:id="@+id/edt_new_term_end_date"/>
 
         </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Assessment Type"
-            android:textSize="19sp"
-            android:fontFamily="sans-serif"
-            android:layout_marginTop="10dip"
-            android:layout_marginStart="20dip"
-            android:layout_marginEnd="20dip"
-            android:textStyle="bold"/>
-
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dip"
-            android:layout_marginEnd="20dip"
-            android:entries="@array/assessment_type"
-            android:padding="10dip"
-            android:id="@+id/spinnerStatusCourse"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
-
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -94,7 +72,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Do you still want alerts for this assessment?"
+                android:text="Are you actively taking this semester?"
                 android:textSize="17sp"
                 android:fontFamily="sans-serif"
                 android:textStyle="bold"/>
@@ -119,26 +97,10 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="UPDATE ASSESSMENT"
+            android:text="ADD TERM"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dip"
             android:id="@+id/btn_add_term"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SET ALERT"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dip"
-            android:id="@+id/btn_add_ALERT"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DELETE ASSESSMENT"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dip"
-            android:id="@+id/delete_ass"/>
 
     </LinearLayout>
 

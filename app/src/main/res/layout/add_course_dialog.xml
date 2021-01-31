@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
@@ -8,7 +7,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:padding="5dip"
-        android:id="@+id/root_course_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -202,52 +200,12 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="UPDATE COURSE"
+            android:text="ADD COURSE"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dip"
             android:id="@+id/btn_add_course"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Course Assessments"
-            android:textSize="19sp"
-            android:fontFamily="sans-serif"
-            android:layout_marginTop="10dip"
-            android:layout_marginStart="20dip"
-            android:layout_marginEnd="20dip"
-            android:textStyle="bold"/>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <ListView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/assessmentList"
-                android:dividerHeight="2dip"
-                android:layout_margin="5dip" />
-        </LinearLayout>
-
-
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="YOU HAVE NO ASSESSMENTS ADDED YET"
-            android:gravity="center_horizontal"
-            android:textSize="19sp"
-            android:fontFamily="sans-serif"
-            android:layout_marginTop="10dip"
-            android:layout_marginStart="20dip"
-            android:layout_marginEnd="20dip"
-            android:visibility="gone"
-            android:id="@+id/txt_no_assessment"
-            android:textStyle="bold"/>
-
     </LinearLayout>
 
-
 </ScrollView>
+

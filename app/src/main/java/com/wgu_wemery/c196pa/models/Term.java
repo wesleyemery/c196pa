@@ -1,4 +1,4 @@
-package com.wgu_wemery.c196pa;
+package com.wgu_wemery.c196pa.models;
 
 public class Term {
     public long termId;
@@ -6,12 +6,31 @@ public class Term {
     public String termStartDate;
     public String termEndDate;
     public int current;
+    public String creationDate;
+    private int courseCount;
 
     public Term() {
         this.termTitle = "";
         this.termStartDate = "";
         this.termEndDate = "";
         this.current = 0;
+        this.courseCount = 0;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public int getCourseCount() {
+        return courseCount;
+    }
+
+    public void setCourseCount(int courseCount) {
+        this.courseCount = courseCount;
     }
 
     public long getTermId() {

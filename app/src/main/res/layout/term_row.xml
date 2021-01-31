@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dip"
+    app:cardElevation="3dip"
+    android:focusable="true"
+    android:id="@+id/cardTerm"
+    android:layout_margin="15dip"
+    app:cardCornerRadius="3dip">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dip">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:id="@+id/txt_term_name"
+            android:layout_margin="2.5dip"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:padding="3dip"
+            android:text="TERM NAME"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:id="@+id/txt_term_start"
+            android:layout_margin="2.5dip"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:padding="3dip"
+            android:visibility="gone"
+            android:text="START DATE"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:id="@+id/txt_term_end"
+            android:layout_margin="2.5dip"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:padding="3dip"
+            android:visibility="gone"
+            android:text="END DATE"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:id="@+id/txt_term_active"
+            android:layout_margin="2.5dip"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:padding="3dip"
+            android:text="ACTIVE"/>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_delete"
+        android:padding="2dip"
+        android:id="@+id/logo_delete_term"
+        app:tint="@android:color/holo_red_light"
+        android:layout_gravity="end|center_vertical"
+        android:layout_margin="2.5dip"/>
+
+</com.google.android.material.card.MaterialCardView>
