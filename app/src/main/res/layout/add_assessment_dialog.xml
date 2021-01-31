@@ -3,7 +3,6 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
-
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
@@ -94,7 +93,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Do you still want alerts for this assessment?"
+                android:text="Do you want alerts for this assessment?"
                 android:textSize="17sp"
                 android:fontFamily="sans-serif"
                 android:textStyle="bold"/>
@@ -119,26 +118,10 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="UPDATE ASSESSMENT"
+            android:text="ADD ASSESSMENT"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dip"
             android:id="@+id/btn_add_term"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SET ALERT"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dip"
-            android:id="@+id/btn_add_ALERT"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DELETE ASSESSMENT"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dip"
-            android:id="@+id/delete_ass"/>
 
     </LinearLayout>
 

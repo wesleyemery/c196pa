@@ -1,4 +1,4 @@
-package com.wgu_wemery.c196pa;
+package com.wgu_wemery.c196pa.models;
 
 public class CourseNote {
     public Long courseNoteID;

@@ -5,6 +5,18 @@
     <string name="courses">COURSES</string>
     <string name="wgu_term_tracker">WGU Term Tracker</string>
     <string name="title_activity_assessment_list">AssessmentListActivity</string>
+    <array name="course_status">
+        <item>In Progress</item>
+        <item>Completed</item>
+        <item>Dropped</item>
+        <item>Plan to take</item>
+    </array>
+
+    <array name="assessment_type">
+        <item>Objective</item>
+        <item>Performance</item>
+    </array>
+
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.

@@ -1,6 +1,8 @@
-package com.wgu_wemery.c196pa;
+package com.wgu_wemery.c196pa.models;
 
-public class Course {
+import java.io.Serializable;
+
+public class Course implements Serializable {
 
     public long courseId;
     public long courseTermID;
@@ -11,6 +13,8 @@ public class Course {
     public String courseMentorEmail;
     public String courseMentorPhone;
     public String status;
+    public String courseTermTitle;
+    public String courseDescription;
 
     public Course() {
     }
@@ -25,6 +29,22 @@ public class Course {
         this.courseMentorEmail = courseMentorEmail;
         this.courseMentorPhone = courseMentorPhone;
         this.status = status;
+    }
+
+    public String getCourseTermTitle() {
+        return courseTermTitle;
+    }
+
+    public void setCourseTermTitle(String courseTermTitle) {
+        this.courseTermTitle = courseTermTitle;
+    }
+
+    public String getCourseDescription() {
+        return courseDescription;
+    }
+
+    public void setCourseDescription(String courseDescription) {
+        this.courseDescription = courseDescription;
     }
 
     public long getCourseId() {
