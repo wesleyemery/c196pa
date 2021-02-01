@@ -3,6 +3,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\we3kb\\Documents\\WGU\\4th Semester\\C192\\c192pa.jks')
+            storePassword 'Mud04111'
+            keyAlias 'c192pakey'
+            keyPassword 'Mud04111'
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "30.0.3"
 

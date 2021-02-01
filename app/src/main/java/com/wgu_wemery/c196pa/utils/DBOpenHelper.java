@@ -1,4 +1,4 @@
-package com.wgu_wemery.c196pa;
+package com.wgu_wemery.c196pa.utils;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -109,9 +109,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
                     ASSESSMENT_COURSE_ID + " INTEGER, " +
                     ASSESSMENT_TYPE + " TEXT, " +
                     ASSESSMENT_NAME + " TEXT, " +
-                    ASSESSMENT_DATE + " TEXT " +
-                    ASSESSMENT_DESCRIPTION + " TEXT " +
-                    ASSESSMENT_CREATED + " TEXT " +
+                    ASSESSMENT_DATE + " TEXT," +
+                    ASSESSMENT_DESCRIPTION + " TEXT, " +
+                    ASSESSMENT_CREATED + " TEXT, " +
                     "FOREIGN KEY(" + ASSESSMENT_COURSE_ID + ") REFERENCES " + TABLE_COURSE + "(" + COURSE_TABLE_ID + ")" +
                     ")";
 
