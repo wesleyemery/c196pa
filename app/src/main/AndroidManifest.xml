@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wgu_wemery.c196pa">
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.C196pa">
         <activity android:name=".CourseNotes"></activity>
+        <receiver android:name=".receivers.Receivers"
+            android:exported="true"/>
         <activity
             android:name=".AlertActivity"
             android:launchMode="singleTop">

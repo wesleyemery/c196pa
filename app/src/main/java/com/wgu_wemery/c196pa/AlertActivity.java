@@ -41,7 +41,7 @@ public class AlertActivity extends AppCompatActivity {
         initUI();
     }
 
-    final Calendar myCalendar = Calendar.getInstance();
+    Calendar myCalendar = Calendar.getInstance();
 
     private DatePickerDialog.OnDateSetListener dated(TextInputEditText inputEditText){
         DatePickerDialog.OnDateSetListener date = (view, year, month, dayOfMonth) -> {
@@ -91,6 +91,7 @@ public class AlertActivity extends AppCompatActivity {
         });
 
         setAlarm.setOnClickListener(v->{
+
             Intent myIntent = new Intent(getApplicationContext(), Receivers.class)
                     .putExtra("ALARM_TITLE",title.getText().toString())
                     .putExtra("ALARM_DESCRIPTION",description.getText().toString());
@@ -99,7 +100,7 @@ public class AlertActivity extends AppCompatActivity {
                     myIntent,
                     0);
             AlarmManager myManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-            myManager.set(AlarmManager.RTC_WAKEUP, dateSet,myPendingIntent);
+            myManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000L,myPendingIntent);
             Toast.makeText(this, "SUCCESSFULLY ADDED ALERT", Toast.LENGTH_SHORT).show();
             title.setText("");
             description.setText("");
